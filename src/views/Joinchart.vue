@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="awrp">
         <timeline :timeline="schedule" :clubName="clubName"></timeline>
         <ap-chart :clubName="clubName" :chart="chart"></ap-chart>
         <!-- <router-link :to="{name:'t'}">所发的发射点法大师傅阿松大</router-link> -->
@@ -70,5 +70,9 @@ export default {
 }
 </script>
 <style scoped>
+   .awrp{
+       /* height: fit-content; */
+       /* overflow-y: scroll; */
+   }
 
 </style>

@@ -6,6 +6,9 @@ import Recruit from '../views/Recruit.vue'
 import Joinchart from '../views/Joinchart.vue'
 import Schedule from '../components/Schedule.vue'
 import HelloWorld from '../components/HelloWorld.vue'
+import Recruitchart from '../views/Recruitchart.vue'
+import ChartSetting from '../components/ChartSetting.vue'
+import RegistrationStatus from '../components/RegistrationStatus.vue'
 
 
 Vue.use(VueRouter)
@@ -21,6 +24,30 @@ Vue.use(VueRouter)
       component: Recruit
     },
     {
+      path: '/recruitchart/:clubName',
+      name: 'recruitchart',
+      components: {
+        default:Recruitchart,
+      },
+
+      // redirect: "ChartSetting",
+      props: { default: true, schedule: true },
+      children:[
+        {
+          path: 'ChartSetting',
+          name: 'ChartSetting',
+          component: ChartSetting
+
+        },
+        {
+          path: 'RegistrationStatus',
+          name: 'RegistrationStatus',
+          component: RegistrationStatus
+
+        }
+      ]
+    },
+    {
       path: '/join',
       name: 'Join',
       component: Join
@@ -28,29 +55,11 @@ Vue.use(VueRouter)
     {
       path: '/joinchart/:clubName',
       name: 'joinchart',
-      children:[
-        {
-          path: '',
-          component: HelloWorld,
-          name:'t'
-        },
-      ],
       components: {
         default:Joinchart,
-        schedule:Schedule,
+        // schedule:Schedule,
       },
       props: { default: true, schedule: true }
-
-        
-      // },
-      // children: [
-      //   {
-      //     path: '',
-      //     name: 'Schedule',
-      //     component: Schedule 
-      //   },
-
-      // ]
     }
 ]
 

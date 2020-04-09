@@ -8,35 +8,35 @@
                 <div class="club-list clearfix">
                     <router-link :to="{ name: 'joinchart', params: { clubName: 'Debate' }}" class="club-item">
                         <span class="club-name">辩论队</span>
-                        <div class="club-img"><img src="https://uploadfiles.nowcoder.com/images/20191109/59_1573270956405_8A9C8878206EDC89EA273AF6F4418EA6" alt=""></div>
+                        <div class="club-img"><img src="../assets/rj.jpg" alt=""></div>
                     </router-link>
                     <router-link :to="{ path: 'joinchart/robot'}" class="club-item">
                         <span class="club-name">机器人社</span>
-                        <div class="club-img"><img src="https://uploadfiles.nowcoder.com/images/20191109/59_1573270956405_8A9C8878206EDC89EA273AF6F4418EA6" alt=""></div>
+                        <div class="club-img"><img src="../assets/rj.jpg" alt=""></div>
                     </router-link>
                     <router-link :to="{ name: 'joinchart', params: { clubName: 'Debate' }}" class="club-item">
                         <span class="club-name">PS社</span>
-                        <div class="club-img"><img src="https://uploadfiles.nowcoder.com/images/20191109/59_1573270956405_8A9C8878206EDC89EA273AF6F4418EA6" alt=""></div>
+                        <div class="club-img"><img src="../assets/rj.jpg" alt=""></div>
                     </router-link>
                     <router-link :to="{ name: 'joinchart', params: { clubName: 'Debate' }}" class="club-item">
                         <span class="club-name">音乐社</span>
-                        <div class="club-img"><img src="https://uploadfiles.nowcoder.com/images/20191109/59_1573270956405_8A9C8878206EDC89EA273AF6F4418EA6" alt=""></div>
+                        <div class="club-img"><img src="../assets/rj.jpg" alt=""></div>
                     </router-link>
                     <router-link :to="{ name: 'joinchart', params: { clubName: 'Debate' }}" class="club-item">
                         <span class="club-name">街舞社</span>
-                        <div class="club-img"><img src="https://uploadfiles.nowcoder.com/images/20191109/59_1573270956405_8A9C8878206EDC89EA273AF6F4418EA6" alt=""></div>
+                        <div class="club-img"><img src="../assets/rj.jpg" alt=""></div>
                     </router-link>
                     <router-link :to="{ name: 'joinchart', params: { clubName: 'Debate' }}" class="club-item">
                         <span class="club-name">青志协</span>
-                        <div class="club-img"><img src="https://uploadfiles.nowcoder.com/images/20191109/59_1573270956405_8A9C8878206EDC89EA273AF6F4418EA6" alt=""></div>
+                        <div class="club-img"><img src="../assets/rj.jpg" alt=""></div>
                     </router-link>
                     <router-link :to="{ name: 'joinchart', params: { clubName: 'Debate' }}" class="club-item">
                         <span class="club-name">支教队</span>
-                        <div class="club-img"><img src="https://uploadfiles.nowcoder.com/images/20191109/59_1573270956405_8A9C8878206EDC89EA273AF6F4418EA6" alt=""></div>
+                        <div class="club-img"><img src="../assets/rj.jpg" alt=""></div>
                     </router-link>
                     <router-link :to="{ name: 'joinchart', params: { clubName: 'Debate' }}" class="club-item">
                         <span class="club-name">广播站</span>
-                        <div class="club-img"><img src="https://uploadfiles.nowcoder.com/images/20191109/59_1573270956405_8A9C8878206EDC89EA273AF6F4418EA6" alt=""></div>
+                        <div class="club-img"><img src="../assets/rj.jpg" alt=""></div>
                     </router-link>
     
                 </div>
@@ -51,21 +51,21 @@ export default {
 }
 </script>
 <style scoped>
-    div{
-        display: block;
-        word-break: break-word;
-    }
+
     .wrp{
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(20, 109, 150);
     }
     .club-route{
         width: 100%;
-        height: 100%;
-        background-color: darkslategrey;
+        /* height: 50%; */
+        height: fit-content;
+        /* background-color: darkslategrey; */
         display: flex;
-        padding-top: 7rem;
+        padding-top: 10%;
         flex-direction: column;
         justify-content: start;
         align-items: center;

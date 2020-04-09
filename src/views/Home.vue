@@ -29,17 +29,22 @@ export default {
 
 <style scoped>
   .wrp{
-    background-color: coral;
+    background-color: rgb(56, 42, 37);
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
+
+
   }
   .mask{
     /* width: 100%;
     height: 100%; */
     background-color: darkcyan;
+    
     
 
   }
@@ -50,6 +55,7 @@ export default {
     align-items: center;
     width: 60rem;
     margin: 0 auto;
+    /* background-color: plum; */
   }
   img{
     width: 20rem;

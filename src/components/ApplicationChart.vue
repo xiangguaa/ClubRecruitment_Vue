@@ -2,7 +2,7 @@
   <div class="mask">
       <div class="wrp">
           <p class="title">{{this.chart.header.value}}</p>
-          <form action="" method="post">
+          <form action="" method="get">
             <div class="body">
                 <div :style="[item.infoStyle.entireRow==true?itemStyle2:itemStyle]" 
                     class="main-item"  
@@ -95,7 +95,7 @@ export default {
 </script>
     
 
-<style>
+<style scoped>
 
     .wrp{
         background-color: gray;
@@ -168,18 +168,24 @@ export default {
         align-items: center;
     }
     .citem{
-        /* background-color: maroon; */
+        background-color: maroon;
+        width: 25%;
+        height: inherit;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
     }
-    
-    .checkbox-input{
+    .citem input{
+        /* width: 5%; */
         background-color: lime;
     }
-    .chebox-wrp{
-        width: 100%;
-        /* background-color: lawngreen; */
-        display: flex;
-
+    .citem div{
+        background-color: blueviolet;
+        width: 50%;
+        
     }
+    
+
     .textarea-type{
         /* margin-left: 1rem; */
         padding-left: 1rem;
