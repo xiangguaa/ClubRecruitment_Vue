@@ -43,15 +43,15 @@ export default {
         this.chart = {
             'header':{'value':"辩论队招新报名表"},
             'body':[
-                {'infoName':'姓名','infoValue':'姓名','infoStyle':{'entireRow':false,'fontWeight':'bold'},'isCheckbox':false},
-                {'infoName':'性别','infoValue':'性别','infoStyle':{'entireRow':false,'fontWeight':'bold'},'isCheckbox':false},
-                {'infoName':'学号','infoValue':'学号','infoStyle':{'entireRow':false,'fontWeight':'bold'},'isCheckbox':false},
-                {'infoName':'电话','infoValue':'电话','infoStyle':{'entireRow':false,'fontWeight':'bold'},'isCheckbox':false},
-                {'infoName':'学院','infoValue':'学院','infoStyle':{'entireRow':false,'fontWeight':'bold'},'isCheckbox':false},
-                {'infoName':'QQ','infoValue':'QQ','infoStyle':{'entireRow':false,'fontWeight':'bold'},'isCheckbox':false},
-                {'infoName':'笔试时间','infoValue':['aa','bb','cc'],'infoStyle':{'entireRow':true,'fontWeight':'light'},'isCheckbox':true},
-                {'infoName':'奖项/比赛经历','infoValue':'奖项/比赛经历','infoStyle':{'entireRow':true,'fontWeight':'light'},'isCheckbox':false},
-                {'infoName':'自我介绍','infoValue':'自我介绍','infoStyle':{'entireRow':true,'fontWeight':'light'},'isCheckbox':false},
+                {'infoName':'姓名','infoValue':'姓名','infoStyle':{'entireRow':false,'fontWeight':'bold'},'inputType':'text'},
+                {'infoName':'性别','infoValue':['男','女'],'infoStyle':{'entireRow':false,'fontWeight':'bold'},'inputType':'checkbox'},
+                {'infoName':'学号','infoValue':'学号','infoStyle':{'entireRow':false,'fontWeight':'bold'},'inputType':'text'},
+                {'infoName':'电话','infoValue':'电话','infoStyle':{'entireRow':false,'fontWeight':'bold'},'inputType':'text'},
+                {'infoName':'学院','infoValue':'学院','infoStyle':{'entireRow':false,'fontWeight':'bold'},'inputType':'text'},
+                {'infoName':'QQ','infoValue':'QQ','infoStyle':{'entireRow':false,'fontWeight':'bold'},'inputType':'text'},
+                {'infoName':'笔试时间','infoValue':['aa','bb','cc'],'infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'checkbox'},
+                {'infoName':'奖项/比赛经历','infoValue':'奖项/比赛经历','infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'textarea'},
+                {'infoName':'自我介绍','infoValue':'自我介绍','infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'textarea'},
                 
 
             ],

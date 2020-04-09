@@ -7,31 +7,39 @@
                 <div :style="[item.infoStyle.entireRow==true?itemStyle2:itemStyle]" 
                     class="main-item"  
                     v-for="(item,idx) in chart.body" :key="idx">
-                        <div v-if="item.isCheckbox==false" 
-                            class="input-item">
+                        <!-- 输入框：姓名、学号、学院等 -->
+                        <div v-if="item.inputType=='text'" class="input-type">
                             <label class="item-name">{{item.infoValue}}</label>
                             <input  class="item-input"
                                 :type="[item.isCheckbox==true?'':'text']"
-                                :style="[item.infoStyle.entireRow==true?styleObject2:styleObject]"
-                                name="name" id="name" required>     
+                                :style="[item.infoStyle.entireRow==true?itemStyle2:itemStyle]"
+                                :name="[item.infoValue]" id="name">     
                         </div>
 
-                        <div v-else class="checkbox-item">
+                        <!-- 笔试日期多选框 -->
+                        <div v-else-if="item.inputType=='checkbox'" class="checkbox-type">
                             <label class="item-name">{{item.infoName}}</label>
                             <div class="checbox-wrp">
                                 <div class="citem"
                                     v-for="(checkitem,checkIdx) in item.infoValue"
                                     :key="checkIdx">
                                     <input class="checkbox-input"
-                                        
                                         type="checkbox"
-                                        :style="[item.infoStyle.entireRow==true?styleObject2:styleObject]"
-                                        name="name" id="name" required>{{checkitem}}  
+                                        :style="[item.infoStyle.entireRow==true?itemStyle2:itemStyle]"
+                                        :name="[item.infoValue]">
+                                    <div>{{checkitem}}  {{checkIdx}}</div>
                                 </div>
-                               
                             </div>
-                               
                         </div>
+
+                        <div v-else-if="item.inputType=='textarea'" class="textarea-type">
+                            <label class="item-name">{{item.infoName}}</label>
+                            <textarea :name="[item.infoValue]" >
+                                我是一个文本框。
+                            </textarea>
+                        </div>
+
+                        <!-- 下拉选择框：性别 -->
                              
                         <!-- {{item.infoName}} - {{item.infoValue}} - {{item.infoStyle}} -->
                 </div>
@@ -40,6 +48,9 @@
                 <div class="note-item" v-for="(item,idx) in chart.footer" :key="idx">
                     {{item}}
                 </div>
+            </div>
+            <div class="submit">
+                <input type="submit">
             </div>
           </form>
       </div>
@@ -55,25 +66,28 @@ export default {
     name:"ApplicationChart",
     created:function(){
         console.log(this.chart)
+        // console.log(checkIdx)
     },
     data:function(){
         return {
+            ratioChecked:'',
             itemStyle: {
                 color: 'red',
                 fontSize: '13px',
                 backgroudColor:'blue',
                 width:'49%',
-                border:'solid 2px black',
-                boxSizing: 'border-box',
+                // border:'solid 2px black',
+                // boxSizing: 'border-box',
             },
             itemStyle2: {
                 color: 'blue',
                 fontSize: '13px',
                 backgroudColor:'red',
                 width:'100%',
-                border:'solid 2px black',
-                boxSizing: 'border-box',
+                // border:'solid 2px black',
+                // boxSizing: 'border-box',
             }
+            
         }
     }
 
@@ -117,7 +131,7 @@ export default {
         align-items: center;
         
     }
-    .input-item{
+    .input-type{
         width: 100%;
         background-color: lemonchiffon;
         padding-left: 1rem;
@@ -136,7 +150,7 @@ export default {
     }
     .item-input{width: 80%;}
 
-    .checkbox-item{
+    .checkbox-type{
         padding-left: 1rem;
         width: 100%;
         background-color: lightcoral;
@@ -154,7 +168,7 @@ export default {
         align-items: center;
     }
     .citem{
-        background-color: maroon;
+        /* background-color: maroon; */
     }
     
     .checkbox-input{
@@ -166,8 +180,26 @@ export default {
         display: flex;
 
     }
+    .textarea-type{
+        /* margin-left: 1rem; */
+        padding-left: 1rem;
+        width: 100%;
+        height: inherit;
+        background-color: lightblue;
+        display: flex;
+        justify-content: start;
+    }
+    textarea {
+       resize: none;
+       /* height: 5rem; */
+       height: auto;
+       width: 80%;
+    }
 
     .notes{
         background-color: rgb(151, 151, 151);
+    }
+    .submit{
+        background-color: blue;
     }
 </style>
