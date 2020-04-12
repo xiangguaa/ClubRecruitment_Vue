@@ -43,7 +43,8 @@ export default {
 
       },
       logout:function(){
-          document.cookie = "chartID=; expires=Thu, 01 Jan 1971 00:00:00 GMT";
+          console.log("logout")
+          document.cookie = "chartID=; expires=Thu, 01 Jan 1971 00:00:00 GMT;";
         //   this.$router.replace({name:'Login',params: { action: 'recruit' }});
         this.$router.replace({name:'Home'});
       }
@@ -52,6 +53,10 @@ export default {
 </script>
 
 <style scoped>
+    
+    a:link {
+        text-decoration: none;
+    }
     .wrp{
         /* background-color: khaki; */
         height: 100%;

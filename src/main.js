@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import $ from 'jquery'
 import timeline from "./components/Timeline.vue"   //引入组件
 import ApplicationChart from "./components/ApplicationChart.vue"   //引入组件
 

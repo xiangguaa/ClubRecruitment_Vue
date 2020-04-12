@@ -118,7 +118,6 @@
                 break;
             case 'recruit':
                 this.placeholder = "表单ID(任意8位数字)"
-                
                 if(chartID != null && chartID.length == 8){
                     this.$router.push('/recruitchart/'+chartID);
                 }
