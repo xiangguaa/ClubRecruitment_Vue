@@ -5,8 +5,9 @@
                 <div class="option-list">
                     <!-- <div class="option" @click="tap('chart')">设置表格</div> -->
 
-                    <router-link :to="{name:'ChartSetting'}" class="option" @click.native="tap('chart')">设置表格</router-link>
-                    <router-link :to="{name:'RegistrationStatus'}" class="option" @click.native="tap('registration')">查看报名</router-link>
+                    <router-link :to="{name:'ChartSetting'}" class="option" @click.native="tap('chart')" replace>设置表格</router-link>
+                    <router-link :to="{name:'RegistrationStatus'}" class="option" @click.native="tap('registration')" replace>查看报名</router-link>
+                    <div class="option" @click="logout()">注销</div>
                 </div>
         </div>
         <div v-if="isShowWelcome" class="welcome">WELCOME   </div>
@@ -40,10 +41,16 @@ export default {
           console.log(this.isShowWelcome)
         //   debugger;
 
+      },
+      logout:function(){
+          document.cookie = "chartID=; expires=Thu, 01 Jan 1971 00:00:00 GMT";
+        //   this.$router.replace({name:'Login',params: { action: 'recruit' }});
+        this.$router.replace({name:'Home'});
       }
   }
 }
 </script>
+
 <style scoped>
     .wrp{
         /* background-color: khaki; */

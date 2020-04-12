@@ -33,10 +33,10 @@
         },
         props: {
             timeline:Array,
-            clubName:String,
+            chartID:String,
         },
         created: function(){
-            console.log(this.timeline)
+            // console.log(this.timeline)
           
 
         },

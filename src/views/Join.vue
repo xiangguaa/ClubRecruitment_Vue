@@ -48,6 +48,12 @@
 <script>
 export default {
   name:'Join',
+  props:{
+      action:String
+  },
+  created:function(){
+      console.log(this.action)
+  }
 }
 </script>
 <style scoped>

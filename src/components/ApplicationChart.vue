@@ -60,12 +60,12 @@
 <script>
 export default {
     props: {
-        clubName:String,
+        chartID:String,
         chart:Object,
     },
     name:"ApplicationChart",
     created:function(){
-        console.log(this.chart)
+        // console.log(this.chart)
         // console.log(checkIdx)
     },
     data:function(){

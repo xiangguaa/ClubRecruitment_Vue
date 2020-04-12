@@ -8,6 +8,9 @@
 <script>
 export default {
   name:'',
+  created:function(){
+      console.log(this.$router)
+  },
 }
 </script>
 <style scoped>

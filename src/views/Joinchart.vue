@@ -1,7 +1,8 @@
 <template>
     <div class="awrp">
-        <timeline :timeline="schedule" :clubName="clubName"></timeline>
-        <ap-chart :clubName="clubName" :chart="chart"></ap-chart>
+        <timeline :timeline="schedule" :chartID="chartID"></timeline>
+        <ap-chart :chartID="chartID" :chart="chart"></ap-chart>
+        <button class="logout" @click="logout()">注销</button>
         <!-- <router-link :to="{name:'t'}">所发的发射点法大师傅阿松大</router-link> -->
         <!-- <t2></t2> -->
         <!-- <router-view></router-view> -->
@@ -20,17 +21,23 @@ export default {
     },
     name:'Joinchart',
     props: {
-        clubName:String
+        chartID:String
+    },
+    methods:{
+        getChartByMd5:function(md5){
+
+        },
+        logout:function(){
+            console.log('logout')
+            // console.error(document.cookie)
+            document.cookie = "chartID=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            // this.$router.replace({name:'Login',params: { action: 'join' }});
+            this.$router.replace({name:'Home'});
+        }
     },
 
-    beforeCreate: function () {
-        // var aData = new Date();
-        // console.log(aData) //Wed Aug 21 2019 10:00:58 GMT+0800 (中国标准时间)
-        // console.log(this)
-    },
-    created:function(){
-        console.log(this.clubName)
-        // axios.get('https://a.b.com?clubName='+this.clubName)
+    beforeMount: function () {
+        // axios.get('https://a.b.com?chartID='+this.chartID)
         // 返回该社团的活动时间表数据
         this.schedule = [
                             [{'time': "2020-02-02 08:30:00"},{'name':"提交报名资料"}],
@@ -38,10 +45,10 @@ export default {
                             [{'time': "2020-02-02 08:30:00"},{'name':"提交报名资料"}],
                             [{'time': "2020-02-02 08:30:00"},{'name':"提交报名资料"}]
                         ]
-        // axios.get('https://a.b.com?clubName='+this.clubName)
+        // axios.get('https://a.b.com?chartID='+this.chartID)
         // 返回该社团的招新问卷表结构
         this.chart = {
-            'header':{'value':"辩论队招新报名表"},
+            'header':{'value':"辩论队"},
             'body':[
                 {'infoName':'姓名','infoValue':'姓名','infoStyle':{'entireRow':false,'fontWeight':'bold'},'inputType':'text'},
                 {'infoName':'性别','infoValue':['男','女'],'infoStyle':{'entireRow':false,'fontWeight':'bold'},'inputType':'checkbox'},
@@ -61,8 +68,12 @@ export default {
                 '觉得拉法基类毒素解放拉萨地方啊深度发掘建立了上的飞机啊'
             ]
         }
-        console.log(this.chart)
-        console.log(this.chart.header)
+        // console.log(this.chart)
+        // console.log(this.chart.header)
+    },
+    created:function(){
+        console.log(this.chartID)
+        
     },
     components:{
         t2
@@ -71,8 +82,14 @@ export default {
 </script>
 <style scoped>
    .awrp{
-       /* height: fit-content; */
-       /* overflow-y: scroll; */
+       width: 100%;
+       height: 100%;
+       padding-bottom: 10%;
+   }
+   .logout{
+       width: 80%;
+       background-color: dodgerblue;
+       /* margin-bottom: ; */
    }
 
 </style>

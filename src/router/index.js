@@ -9,6 +9,7 @@ import HelloWorld from '../components/HelloWorld.vue'
 import Recruitchart from '../views/Recruitchart.vue'
 import ChartSetting from '../components/ChartSetting.vue'
 import RegistrationStatus from '../components/RegistrationStatus.vue'
+import Login from '../views/Login.vue'
 
 
 Vue.use(VueRouter)
@@ -16,7 +17,8 @@ Vue.use(VueRouter)
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      // props: true,
     },
     {
       path: '/recruit',
@@ -24,7 +26,13 @@ Vue.use(VueRouter)
       component: Recruit
     },
     {
-      path: '/recruitchart/:clubName',
+      path: '/Login',
+      name: 'Login',
+      component: Login,
+      props: true
+    },
+    {
+      path: '/recruitchart/:chartID',
       name: 'recruitchart',
       components: {
         default:Recruitchart,
@@ -50,10 +58,12 @@ Vue.use(VueRouter)
     {
       path: '/join',
       name: 'Join',
-      component: Join
+      component: Join,
+      props: true,
     },
     {
-      path: '/joinchart/:clubName',
+      // path: '/joinchart/:clubName',
+      path: '/joinchart/:chartID',
       name: 'joinchart',
       components: {
         default:Joinchart,

@@ -3,15 +3,15 @@
     <div class="mask">
       <header>社团招新 · Recruitment</header>
       <div class="route">
-          <router-link to="/join">
+          <router-link :to="{ name: 'Login', params: { action: 'join' }}">
             <img src="../assets/rj.jpg" alt="加入">
             <p>我要加入</p> 
           </router-link>
-          <router-link to='/recruit'>
+          <router-link :to="{ name: 'Login', params: { action: 'recruit' }}">
             <img src="../assets/rj.jpg" alt="加入">
             <p>我要招收</p> 
           </router-link>
-          <!-- <router-link to='/test'>
+          <!-- <router-link :to="{ name: 'Join', params: { action: 'join' }}">
             <img src="../assets/rj.jpg" alt="加入">
             <p>我要招收</p> 
           </router-link> -->
@@ -23,7 +23,27 @@
 
 <script>
 export default {
-  name:'',
+  name:'Home',
+  methods:{
+      getCookie:function (name) {
+          var arr;
+          var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+          if (arr = document.cookie.match(reg))
+              return unescape(arr[2]);
+          else
+              return null;
+      },
+  },
+  created:function(){
+        document.cookie = "a=kkkk;path=/"
+        document.cookie = "b=天行健，君子以自强不息;path=/;"
+        document.cookie = "c=sdfadf; expires=2;path=/recruit;";
+          // document.cookie = "c=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+        // console.log(document.cookie)
+        // console.log(this.getCookie('b'))
+  }
+  
 }
 </script>
 
