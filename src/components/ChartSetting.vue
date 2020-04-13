@@ -14,6 +14,9 @@
                         <th>操作</th>
                     </tr>
                 </table>
+                <div class="chart-notes" id="chart-notes">
+
+                </div>
                 <button @click="test()">test</button>
                 <div class="chart-title-setting">
                     <h2 style="width:5rem;diplay:inline-block;">社团名称</h2>
@@ -51,7 +54,7 @@ export default {
             ],
             'footer':[
                 'dsfasdfasdf',
-                '大家发来减肥哈哈哈我和嘎哈大哥啊大哥拉回到发生的的立法和斯大林发送大量法律上的封建落后阿斯弗舒服多啦合适的方式发挥了',
+                '大家发来减肥哈哈哈我和嘎哈大哥啊大哥拉回到发生的的立法和斯大林发送大量法sdfadfasdfasdf律上的封建落后阿斯弗舒服多啦合适的方式发挥了',
                 '觉得拉法基类毒素解放拉萨地方啊深度发掘建立了上的飞机啊'
             ]
         }
@@ -68,8 +71,22 @@ export default {
           console.log(this.chart.header)
       },
       delete(e){
-        console.log(e)
         console.log(e.currentTarget.id)
+        var str = String(e.currentTarget.id)
+        console.log(str[0])
+        switch (str[0]) {
+            case 't':
+                // 被删除的数组元素以空数组代替，避免因删除数组元素导致的数组序号改变
+                // 最后上传数据时，需要将空数组全部去除。
+                this.chart.body.splice(parseInt(str.replace(/[^0-9]/ig,"")),1,[])
+                break;
+            case 'p':
+                this.chart.footer.splice(parseInt(str.replace(/[^0-9]/ig,"")),1,[])
+                break;
+            default:
+                break;
+        }
+        console.log(parseInt(str.replace(/[^0-9]/ig,"")));
         let idObject = document.getElementById(e.currentTarget.id);
         idObject.parentNode.parentNode.removeChild(idObject.parentNode);
       }
@@ -82,20 +99,25 @@ export default {
     //   获取信息并存储至this.chart中
     // 
     for(let i=0;i<this.chart.body.length;i++){
-        // console.log(document.getElementById('table'))
         var tdArr = document.getElementById('table');
-
         let tr=document.createElement("tr");   
-        
         tr.innerHTML ='<td>' + this.chart.body[i].infoName + '</td>'+ '<td>'+this.chart.body[i].infoValue+'\
         </td>'+'<td>'+this.chart.body[i].infoStyle.entireRow+'</td>'+'<td>'+this.chart.body[i].infoStyle.fontWeight+'</td>'+'\
         <td>'+this.chart.body[i].inputType+'</td>'+'<td class="chart-op-del" id=td'+String(i)+'>删除</td>';
         tdArr.appendChild(tr)
     }
 
+    for(let i=0;i<this.chart.footer.length;i++){
+        var tdArr = document.getElementById('chart-notes');
+        let div=document.createElement("div");  
+        div.innerHTML ='<div class="chart-note"><p>'+this.chart.footer[i]+'</p>'+ '<p class="chart-op-del" id=p'+String(i)+'>删除</p></div>';
+        tdArr.appendChild(div)
+    }
+
     this.$nextTick(() => {
         // 动态添加dom元素，并绑定VUE事件（.pdf-item为动态添加的元素，放置在父元素.pdf-body下）
         $('.table').on('click', '.chart-op-del', this.delete)
+        $('.chart-notes').on('click', '.chart-op-del', this.delete)
     });
         
     // $('.chart-op-del').each(function() {
@@ -160,6 +182,19 @@ export default {
     }
     .chart-op-del:hover{
         background-color: indigo;
+    }
+    .chart-notes{
+        background-color: aquamarine;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 1rem;
+        /* padding: 1rem; */
+    }
+    .chart-note{
+        /* overflow: scroll; */
+        /* overflow: hidden; */
+        padding: 2rem;
+        
     }
 
 </style>
