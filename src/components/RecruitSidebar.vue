@@ -33,6 +33,14 @@ export default {
     };
   },
   methods: {
+    getCookie:function (name) {
+        var arr;
+        var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    },
     tap: function(optionName) {
       switch (optionName) {
         case "chart":
@@ -49,7 +57,7 @@ export default {
     logout: function() {
       console.log("logout");
       document.cookie = "chartID=; expires=Thu, 01 Jan 1971 00:00:00 GMT;";
-      //   this.$router.replace({name:'Login',params: { action: 'recruit' }});
+        // this.$router.replace({name:'Login',params: { action: 'recruit' }});
       this.$router.replace({ name: "Home" });
     },
     beforeunloadFn(e) {
@@ -58,6 +66,11 @@ export default {
     }
   },
   created: function() {
+    let chartid = this.getCookie('chartID')
+    if(chartid == null){
+        console.log(' no chart id')
+        this.$router.replace({name:'Login',params: { action: 'recruit' }});
+    }
     window.addEventListener("beforeunload", e => this.beforeunloadFn(e));
   },
   destroyed() {
