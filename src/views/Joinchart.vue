@@ -68,7 +68,9 @@ export default {
         }
     },
     created:function(){
-        // console.log(this.chartID)
+        console.log(this.chartID)
+        document.cookie = "chartID="+this.chartID+";expires=2;"
+        
         
     },
     components:{
