@@ -97,18 +97,16 @@ export default {
   },
   methods:{
       test(){
-          console.log('test')
+        //   console.log('test')
           
       },
       setTitle(){
-          console.log(this.clubName)
+        //   console.log(this.clubName)
           this.chart.header.value = this.clubName;
-          console.log(this.chart.header)
+        //   console.log(this.chart.header)
           alert("设置成功！")
       },
       addTime(){
-        console.log(this.date1)
-        console.log(this.date2)
         var el = document.getElementById('chart-added-el');
         let div=document.createElement("div");
         if(this.date1!=null && this.date2!=null){
@@ -127,13 +125,10 @@ export default {
             alert("数据未填写完整，请先填写数据。")
         }
         $('.chart-added-el').on('click', '.chart-op-del', this.delete)
-        console.log(this.chart.body)
+        // console.log(this.chart.body)
 
       },
       addNotes(){
-        console.log(this.note1)
-        console.log(this.note2)
-        console.log(this.note3)
         if(this.note1 != null){
             this.chart.footer[0]=this.note1
         }
@@ -154,8 +149,8 @@ export default {
         // console.log(this.chart.footer)
       },
       delete(e){
-        console.log(e.currentTarget.id)
-        var str = String(e.currentTarget.id)
+        // console.log(e.currentTarget.id)
+        // var str = String(e.currentTarget.id)
         switch (str[0]) {
             case 't':   // 删除表格tr元素
                 // 被删除的数组元素以空数组代替，避免因删除数组元素导致的数组序号改变
@@ -164,7 +159,7 @@ export default {
                 break;
             case 'p':   // 删除备注中的元素
                 this.chart.footer.splice(parseInt(str.replace(/[^0-9]/ig,"")),1,[])
-                console.log(this.chart.footer)
+                // console.log(this.chart.footer)
                 break;
             case 'd':
                 for(let i=0;i<this.chart.body.length;i++){
@@ -176,7 +171,7 @@ export default {
             default:
                 break;
         }
-        console.log(this.chart)
+        // console.log(this.chart)
         let idObject = document.getElementById(e.currentTarget.id);
         idObject.parentNode.parentNode.removeChild(idObject.parentNode);
       }
