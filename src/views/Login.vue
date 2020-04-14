@@ -17,6 +17,7 @@
 
 <script>
 //  import { userLogin } from '../../api/api';
+import common from '../common/common.js'
  
   export default {
     props:{
@@ -39,14 +40,6 @@
       }
     },
     methods: {
-        getCookie:function (name) {
-            var arr;
-            var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-            if (arr = document.cookie.match(reg))
-                return unescape(arr[2]);
-            else
-                return null;
-        },
         // 当action位join时，查询填写的md5的chartID是否在数据库中有对应原始chartID
         // 有则正常登陆，无则提示错误
         checkMD5Exist:function(md5){
@@ -64,12 +57,12 @@
         },
 
         login() {
-            console.log(this.action)
+            // console.log(this.action)
             // 从home进入时
             switch (this.action) {
                 case 'join':
-                    console.log('join part')
-                    console.log(this.chartID)
+                    // console.log('join part')
+                    // console.log(this.chartID)
                     if (!this.chartID || this.chartID.length != 16) {
                         alert("ID格式错误！")
                         return;
@@ -84,7 +77,7 @@
                     
                     break;
                 case 'recruit':
-                    console.log('recruit part')
+                    // console.log('recruit part')
                     if (!this.chartID || this.chartID.length != 8) {
                         alert("ID格式错误！")
                         return;
@@ -105,9 +98,9 @@
     },
     
     created:function(){
-        console.log(this.action)
-        let chartID = this.getCookie("chartID");
-        console.log('Login:chartID',chartID)
+        // console.log(this.action)
+        let chartID = common.util.getCookie("chartID");
+        // console.log('Login:chartID',chartID)
         
         switch (this.action) {
             case 'join':

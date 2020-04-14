@@ -10,6 +10,7 @@ import Recruitchart from '../views/Recruitchart.vue'
 import ChartSetting from '../components/ChartSetting.vue'
 import RegistrationStatus from '../components/RegistrationStatus.vue'
 import Login from '../views/Login.vue'
+import PersonDetail from '../views/PersonDetail.vue'
 
 
 Vue.use(VueRouter)
@@ -50,9 +51,24 @@ Vue.use(VueRouter)
         {
           path: 'RegistrationStatus',
           name: 'RegistrationStatus',
-          component: RegistrationStatus
-
+          component: RegistrationStatus,
+        },
+        {
+          path: 'RegistrationStatus/PersonDetail/:id',
+          name: 'PersonDetail',
+          component: PersonDetail,
+          props:true,
+          meta:{
+            noKeepAlive:true
+          }
         }
+        // {
+        //   path: 'PersonDetail',
+        //   name: 'PersonDetail',
+        //   component: PersonDetail,
+        //   props:true,
+        // }
+        
       ]
     },
     {
@@ -71,6 +87,9 @@ Vue.use(VueRouter)
       },
       props: { default: true, schedule: true }
     }
+   
+    
+    
 ]
 
 const router = new VueRouter({

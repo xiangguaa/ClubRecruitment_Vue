@@ -25,6 +25,7 @@
   </div>
 </template>
 <script>
+import common from '../common/common.js'
 export default {
   name: "RecruitSidebar",
   data: function() {
@@ -33,21 +34,12 @@ export default {
     };
   },
   methods: {
-    getCookie:function (name) {
-        var arr;
-        var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg))
-            return unescape(arr[2]);
-        else
-            return null;
-    },
     tap: function(optionName) {
       switch (optionName) {
         case "chart":
-          console.log("charttttt");
+          // console.log("charttttt");
           break;
         case "registration":
-          console.log("regissssss");
           break;
         default:
           break;
@@ -55,8 +47,8 @@ export default {
       this.isShowWelcome = false;
     },
     logout: function() {
-      console.log("logout");
-      document.cookie = "chartID=; expires=Thu, 01 Jan 1971 00:00:00 GMT;";
+      document.cookie = "chartID=; expires=Thu, 01 Jan 1972 00:00:00 GMT;";
+      // console.log(common.util.getCookie('chartID'))
         // this.$router.replace({name:'Login',params: { action: 'recruit' }});
       this.$router.replace({ name: "Home" });
     },
@@ -66,11 +58,15 @@ export default {
     }
   },
   created: function() {
-    let chartid = this.getCookie('chartID')
+    let chartid = common.util.getCookie('chartID')
+    // 如果不存在cookie信息，则直接退出页面
     if(chartid == null){
-        console.log(' no chart id')
         this.$router.replace({name:'Login',params: { action: 'recruit' }});
+    }else{
+
     }
+    // 否则，向数据库进行验证，只有通过后，数据库才允许接下来的请求信息。
+
     window.addEventListener("beforeunload", e => this.beforeunloadFn(e));
   },
   destroyed() {

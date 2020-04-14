@@ -28,8 +28,6 @@ export default {
 
         },
         logout:function(){
-            console.log('logout')
-            // console.error(document.cookie)
             document.cookie = "chartID=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
             // this.$router.replace({name:'Login',params: { action: 'join' }});
             this.$router.replace({name:'Home'});
@@ -68,11 +66,9 @@ export default {
                 '觉得拉法基类毒素解放拉萨地方啊深度发掘建立了上的飞机啊'
             ]
         }
-        // console.log(this.chart)
-        // console.log(this.chart.header)
     },
     created:function(){
-        console.log(this.chartID)
+        // console.log(this.chartID)
         
     },
     components:{
