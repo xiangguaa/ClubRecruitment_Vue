@@ -4,11 +4,11 @@
       <header>社团招新 · Recruitment</header>
       <div class="route">
           <router-link :to="{ name: 'Login', params: { action: 'join' }}">
-            <img src="../assets/rj.jpg" alt="加入">
+            <img src="../assets/registration.png" alt="加入">
             <p>我要加入</p> 
           </router-link>
           <router-link :to="{ name: 'Login', params: { action: 'recruit' }}">
-            <img src="../assets/rj.jpg" alt="加入">
+            <img src="../assets/recruitment.png" alt="加入">
             <p>我要招收</p> 
           </router-link>
           <!-- <router-link :to="{ name: 'Join', params: { action: 'join' }}">
@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
   .wrp{
-    background-color: rgb(56, 42, 37);
+    /* background-color: rgb(56, 42, 37); */
     height: 100%;
     width: 100%;
     display: flex;
@@ -55,7 +55,7 @@ export default {
   .mask{
     /* width: 100%;
     height: 100%; */
-    background-color: darkcyan;
+    /* background-color: darkcyan; */
     
     
 
@@ -72,11 +72,35 @@ export default {
   img{
     width: 20rem;
     height: 20rem;
+    outline: none;
+    
   }
-  header,p{
-    font-size: 2rem;
+  header{
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    /* background-color: blueviolet; */
+    letter-spacing: 0.1rem;
   }
- 
+  p{
+    border: 1px solid #d7d7d7;
+    font-size: 1.7rem;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+    color: black;
+    
+  }
+  a{
+    text-decoration:none;
+    outline:none;
+  }
+  a:active{
+    outline:none;
+  }
+  p:hover{
+   box-shadow: 0 4px 5px;
+
+  }
 
 
 </style>

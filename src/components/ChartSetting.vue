@@ -1,66 +1,68 @@
 <template>
     <div class="chart-wrp">
-        <div class="chart-added">
-            <h2 class="chart-title">当前数据</h2>
-            <div class="chart-division-wrp chart-added-wrp">
-                <table border="1" id="table" class="table">
-                    <tr>
-                        <th>项目名称</th>
-                        <th>项目值</th>
-                        <th>整行</th>
-                        <th>加粗</th>
-                        <th>类型</th>
-                        <th>操作</th>
-                    </tr>
-                </table>
-                <h1>社团名称：{{clubName}}</h1>
-                <div class="chart-notes" id="chart-notes">
-
+        <div class="content-wrp">
+            <div class="chart-added">
+                <h2 class="chart-title">当前数据</h2>
+                <div class="chart-division-wrp chart-added-wrp">
+                    <table border="1" id="table" class="table">
+                        <tr>
+                            <th>项目名称</th>
+                            <th>项目值</th>
+                            <th>整行</th>
+                            <th>加粗</th>
+                            <th>类型</th>
+                            <th>操作</th>
+                        </tr>
+                    </table>
+                    <div class="chart-club-title">社团名称：{{clubName}}</div>
+                    <div class="chart-notes" id="chart-notes">
+                    </div>
+                    <!-- <button @click="test()">test</button> -->
+                    
+                    <div class="chart-added-el" id="chart-added-el"></div>
                 </div>
-                <button @click="test()">test</button>
+            </div> 
+
+            <div class="chart-preset">
+                <h2 class="chart-title">添加预设数据</h2>
+                <div class="chart-division-wrp chart-preset-wrp">
+                    <div class="chart-preset-time">
+                        <div class="chart-time-title">
+                            <h3>笔试时间</h3>    
+                            <p>个数任意</p>
+                        </div>
+                        <div class="chart-time-picker">
+                            <input type="datetime-local" name="time1" v-model="date1">
+                            <input type="datetime-local" name="time2" v-model="date2">
+                            <!-- <input type="datetime-local" name="time3" v-model="date3"> -->
+                            
+                        </div>
+                        <button class="chart-time-confirm" @click="addTime()">添加</button>
+                    </div>
+                    <div class="chart-preset-title">
+                        <h2>社团名称</h2>
+                        <input type="text" @keyup.enter="setTitle()" v-model="clubName" placeholder="请输入社团名称">
+                        <input type="button" value="确定" @click="setTitle()">
+                    </div>
+                    <div class="chart-preset-notes">
+                        <div>
+                            <h3 style="display:inline;">备注  </h3>
+                            <p style="display:inline;font-size:0.7rem;">最多添加三条</p>
+                        </div>
+                        <div class="chart-notes-add">
+                            <textarea name="note1" v-model="note1"></textarea>
+                            <textarea name="note2" v-model="note2"></textarea>
+                            <textarea name="note3" v-model="note3"></textarea>
+                        </div>
+                        <button class="chart-notes-confirm" @click="addNotes()">添加</button>
+                    </div>
                 
-                <div class="chart-added-el" id="chart-added-el"></div>
-            </div>
-        </div> 
+                </div>
+                
 
-        <div class="chart-preset">
-            <h2 class="chart-title">添加预设数据</h2>
-            <div class="chart-division-wrp chart-preset-wrp">
-                <div class="chart-preset-time">
-                    <div class="chart-time-title">
-                        <h3>笔试时间</h3>    
-                        <p>个数任意</p>
-                    </div>
-                    <div class="chart-time-picker">
-                        <input type="datetime-local" name="time1" v-model="date1">
-                        <input type="datetime-local" name="time2" v-model="date2">
-                        <!-- <input type="datetime-local" name="time3" v-model="date3"> -->
-                        
-                    </div>
-                    <button class="chart-time-confirm" @click="addTime()">添加</button>
-                </div>
-                <div class="chart-preset-title">
-                    <h2>社团名称</h2>
-                    <input type="text" @keyup.enter="setTitle()" v-model="clubName" placeholder="请输入社团名称">
-                    <input type="button" value="确定" @click="setTitle()">
-                </div>
-                <div class="chart-preset-notes">
-                    <div>
-                        <h3 style="display:inline;">备注  </h3>
-                        <p style="display:inline;font-size:0.7rem;">最多添加三条</p>
-                    </div>
-                    <div class="chart-notes-add">
-                        <textarea name="note1" v-model="note1"></textarea>
-                        <textarea name="note2" v-model="note2"></textarea>
-                        <textarea name="note3" v-model="note3"></textarea>
-                    </div>
-                    <button class="chart-notes-confirm" @click="addNotes()">添加</button>
-                </div>
-            
             </div>
-            
-
         </div>
+        
     </div>
 </template>
 <script>
@@ -110,21 +112,21 @@ export default {
         var el = document.getElementById('chart-added-el');
         let div=document.createElement("div");
         if(this.date1!=null && this.date2!=null){
-            div.innerHTML ='<div class="chart-time-wrp"><h3>笔试时间</h3>'+'<p>'+this.date1+'  -  '+this.date2+'</p>'+'<p class="chart-op-del" id="date">删除</p></div>';
-            this.chart.body.push({'infoName':'笔试时间','infoValue':[this.date1,this.date2],'infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'checkbox'})
+            div.innerHTML ='<div class="chart-time-wrp"><h3>笔试时间:</h3>'+'<p class="chart-time-content">'+this.date1+'  -  '+this.date2+'</p>'+'<p class="chart-time-del" id="date">删除</p></div>';
+            this.chart.body.push({'infoName':'笔试时间:','infoValue':[this.date1,this.date2],'infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'checkbox'})
             el.appendChild(div)
         }else if(this.date1!=null && this.date2==null){
-            div.innerHTML ='<div class="chart-time-wrp"><h3>笔试时间</h3>'+'<p>'+this.date1+'</p>'+'<p class="chart-op-del" id="date">删除</p></div>';
-            this.chart.body.push({'infoName':'笔试时间','infoValue':[this.date1],'infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'checkbox'})
+            div.innerHTML ='<div class="chart-time-wrp"><h3>笔试时间:</h3>'+'<p class="chart-time-content">'+this.date1+'</p>'+'<p class="chart-time-del" id="date">删除</p></div>';
+            this.chart.body.push({'infoName':'笔试时间:','infoValue':[this.date1],'infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'checkbox'})
             el.appendChild(div)
         }else if(this.date1==null && this.date2!=null){
-            div.innerHTML ='<div class="chart-time-wrp"><h3>笔试时间</h3>'+'<p>'+this.date2+'</p>'+'<p class="chart-op-del" id="date">删除</p></div>';
-            this.chart.body.push({'infoName':'笔试时间','infoValue':[this.date2],'infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'checkbox'})
+            div.innerHTML ='<div class="chart-time-wrp"><h3>笔试时间:</h3>'+'<p class="chart-time-content">'+this.date2+'</p>'+'<p class="chart-time-del" id="date">删除</p></div>';
+            this.chart.body.push({'infoName':'笔试时间:','infoValue':[this.date2],'infoStyle':{'entireRow':true,'fontWeight':'light'},'inputType':'checkbox'})
             el.appendChild(div)
         }else{
             alert("数据未填写完整，请先填写数据。")
         }
-        $('.chart-added-el').on('click', '.chart-op-del', this.delete)
+        $('.chart-added-el').on('click', '.chart-time-del', this.delete)
         // console.log(this.chart.body)
 
       },
@@ -142,15 +144,15 @@ export default {
         for(let i=0;i<this.chart.footer.length;i++){
             var tdArr = document.getElementById('chart-notes');
             let div=document.createElement("div");  
-            div.innerHTML ='<div class="chart-note"><p>'+this.chart.footer[i]+'</p>'+ '<p class="chart-op-del" id=p'+String(i)+'>删除</p></div>';
+            div.innerHTML ='<div class="chart-note"><p class="chart-note-content">'+this.chart.footer[i]+'</p>'+ '<p class="chart-note-del" id=p'+String(i)+'>删除</p></div>';
             tdArr.appendChild(div)
         }
-        $('.chart-notes').on('click', '.chart-op-del', this.delete)
+        $('.chart-notes').on('click', '.chart-note-del', this.delete)
         // console.log(this.chart.footer)
       },
       delete(e){
         // console.log(e.currentTarget.id)
-        // var str = String(e.currentTarget.id)
+        var str = String(e.currentTarget.id)
         switch (str[0]) {
             case 't':   // 删除表格tr元素
                 // 被删除的数组元素以空数组代替，避免因删除数组元素导致的数组序号改变
@@ -217,36 +219,56 @@ export default {
 
 <style>
     .chart-wrp{
-        width: 100%;
-        height: 100%;
-        background-color: forestgreen;
+        background-color: #eef1f6;
         display: flex;
-        justify-content: start;
-    }
-    .chart-added{
-        width: 50%;
-        height: 100%;
-        background-color: firebrick;
+        justify-content: center;
+        align-items: center;
         
     }
+    .content-wrp{
+        width: 95%;
+        height: 90%;
+        /* background-color: yellow; */
+        display: flex;
+        justify-content: space-between;
+    }
+    .chart-added{
+        width: 48%;
+        height: 100%;
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        box-shadow: #566d97 0 0 20px;
+        overflow: scroll;
+
+        
+    }
+    ::-webkit-scrollbar {
+        /*隐藏滚轮*/
+        display: none;
+    }
     .chart-preset{
-        width: 50%;
+        width: 48%;
         height: 100%;
         background-color: rgb(6, 211, 40);
         display: flex;
+        box-shadow: #566d97 0 0 20px;
         flex-direction: column;
         justify-content: flex-start;
+        border-radius: 0.5rem;
     }
     .chart-title{
-        background-color: rgb(70, 127, 165);
+        /* background-color: rgb(70, 127, 165); */
         width: 100%;
         padding: 0rem;
         height: 5%;
+        color: white;
+        font-size: 1.5rem;
+        letter-spacing: 2px;
         /* margin-top: 1%; */
         padding-top: 1%;
     }
     .chart-division-wrp{
-        background-color: gray;
+        background-color: #ffffff;
         height: 89.4%;
         width: 100%;
         padding-top: 5%;
@@ -254,33 +276,137 @@ export default {
     .chart-preset-wrp{
         background-color: greenyellow;
     }
+
     table{
         font-size: 1.5rem;
-        width: 90%;
+        width: 96%;
         margin: 0 auto;
-        
+        border-collapse: collapse;
+        /* margin: 0 auto; */
+        padding: 0;
+        text-align: center;
+        /* border: 2px solid #b0c3d8; */
+    }
+ 
+    table td, table th{
+        border: 1px solid #cad9ea;
+        color: #666;
+        height: 30px;
+    }
+ 
+    table thead th{
+        background-color: #CCE8EB;
+        width: 100px;
+    }
+ 
+    table tr:nth-child(odd){
+        background: #fff;
+    }
+
+    table tr:nth-child(even){
+        background: #F5FAFA;
     }
     .chart-op-del{
-        background-color: hotpink;
+        background-color: rgb(236, 226, 231);
     }
     .chart-op-del:hover{
-        background-color: indigo;
+        background-color: rgb(175, 145, 197);
+        cursor: crosshair;
+    }
+    .chart-club-title{
+        /* background-color: blueviolet; */
+        width: 96%;
+        margin: 0 auto;
+        border: 1px solid #cad9ea;
+        height: 30px;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-start;
+        text-indent: 2rem;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        
+        /* text-indent: 0; */
     }
     .chart-notes{
-        background-color: aquamarine;
-        width: 90%;
+        background-color: white;
+        width: 96%;
+        border: 1px solid #cad9ea;
         margin: 0 auto;
         margin-top: 1rem;
         /* padding: 1rem; */
+        /* display: flex;
+        flex-direction: column;
+        align-items: center; */
     }
     .chart-note{
-        background-color: crimson;
+        width: 95%;
+        height: fit-content;
+        /* background-color: #f5fafa; */
+        /* background-color: tomato; */
         /* overflow: scroll; */
         /* overflow: hidden; */
         padding: .5rem;
-        margin: .5rem 0;
+        margin: .5rem auto;
+        display: flex;
+        /* justify-content: flex-end; */
+        justify-content: space-between;
         
     }
+    .chart-note-content{
+        width: 80%;
+        /* background-color: turquoise; */
+        font-size: 1.2rem;
+    }
+    .chart-note-del{
+        width: 5%;
+        /* height: 3rem; */
+        /* background-color: yellowgreen; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .chart-note-del:hover{
+        background-color: #af91c5;
+        cursor: crosshair;
+    }
+    #chart-added-el{
+        width: 96%;
+        margin: 1rem auto;
+        height: fit-content;
+        /* background-color: rgb(116, 179, 75); */
+        border: 1px solid #cad9ea;
+    }
+    .chart-time-wrp{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .chart-time-wrp h3{
+        width: 20%;
+        /* background-color: tomato; */
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        text-indent: 1.2rem;
+    }
+    .chart-time-content{
+        width: 70%;
+        /* background-color: violet; */
+        font-size: 1.3rem;
+    }
+    .chart-time-del{
+        width: 10%;
+        /* background-color: rgb(28, 13, 163); */
+        height: fit-content;
+    }
+    .chart-time-del:hover{
+        background-color: rgb(175, 145, 197);
+        cursor: crosshair;
+    }
+    /* ----------------------------------------------- */
     .chart-preset-time{
         width: 100%;
         height: 10%;

@@ -1,15 +1,15 @@
 <template>
-    <div>
-    <div class="outer_label">
-      <img class="inner_label login_logo" src="../assets/logo.png">
-    </div>
-    <div class="login_form">
-      <input type="text" @keyup.enter="login()"  class="qxs-ic_password qxs-icon"  :placeholder="placeholder" v-model="chartID">
-      <button class="login_btn" @click="login()" type="primary" round :loading="isBtnLoading">登录</button>
-      <div style="margin-top: 10px">
-        <span style="color: #000099;" >请谨记您的表单ID，该ID用于查询管理入团信息</span>
+    <div class="wrp">
+      <div class="outer_label">
+        <img class="login_logo" src="../assets/login.png">
       </div>
-    </div>
+      <div class="login_form">
+        <input type="text" @keyup.enter="login()"  class="passwd qxs-icon"  :placeholder="placeholder" v-model="chartID">
+        <button class="login_btn" @click="login()" type="primary" round :loading="isBtnLoading">登录</button>
+        <div style="margin-top: 10px">
+          <span style="color: #000099;" >请谨记您的表单ID，该ID用于查询管理入团信息</span>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -127,33 +127,56 @@ import common from '../common/common.js'
 
 
 <style scoped>
-    .login_form {
-    padding-top: 10%;
+  .wrp{
+    /* background-color: chartreuse; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login_form {
+    /* background-color: chartreuse; */
+    padding-top: 3%;
     padding-left: 10%;
     padding-right: 10%;
+    width: 40%;
+    margin: 0 auto;
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .qxs-ic_user {
-    background: url("../assets/logo.png") no-repeat;
-    background-size: 13px 15px;
-    background-position: 3%;
-  }
-  .qxs-ic_password {
-    background: url("../assets/logo.png") no-repeat;
+  .passwd {
+    /* background: url("../assets/login.png") no-repeat; */
     background-size: 13px 15px;
     background-position: 3%;
     margin-bottom: 20px;
+    outline: none;
+    width: 50%;
+    height: 3rem;
+    text-indent: 1rem;
   }
   .login_logo {
-    height: 100%;
+    height: 10rem;
+    width: 10rem;
   }
   .login_btn {
-    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;  
+    outline: none;    
+    width: 51%;
+    height: 3rem;
+    border-radius: 2px;
     font-size: 16px;
-    background: -webkit-linear-gradient(left, #000099, #2154FA); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #000099, #2154FA); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #000099, #2154FA); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #000099 , #2154FA); /* 标准的语法 */
-    filter: brightness(1.4);
+    background-color: #25bb9b;
+    color: white;
+    letter-spacing: 1rem;
+    font-weight: 300;
+    /* filter: brightness(1.4); */
   }
 
 </style>

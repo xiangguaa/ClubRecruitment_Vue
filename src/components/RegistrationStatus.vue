@@ -58,7 +58,7 @@ export default {
 </script>
 <style scoped>
     .wrp{
-        width: 100%;
+        /* width: 90%; */
         height: 100%;
         background-color: rgb(145, 131, 131);
         display: flex;

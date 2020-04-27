@@ -28,7 +28,8 @@ export default {
 
         },
         logout:function(){
-            document.cookie = "chartID=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            document.cookie = "chartID=; expires=Thu, 01 Jan 1972 00:00:00 GMT;";
+            console.log(document.cookie) 
             // this.$router.replace({name:'Login',params: { action: 'join' }});
             this.$router.replace({name:'Home'});
         }
