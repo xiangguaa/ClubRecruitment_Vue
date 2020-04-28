@@ -86,9 +86,23 @@ export default {
        padding-bottom: 10%;
    }
    .logout{
-       width: 80%;
-       background-color: dodgerblue;
+       width: 85%;
+       height: 5%;
+       outline: none;
+       border: none;
+        border-radius: 0.4rem;
+       /* background-color: #578acc; */
+       background-color: #98a6c2;
+       color: white;
+       font-size: 2rem;
+       letter-spacing: 1rem;
+       font-weight: 550;
+       margin-bottom: 5rem;
        /* margin-bottom: ; */
+   }
+   .logout:hover{
+       /* background-color: #cc3681; */
+       background-color: #365ecc;
    }
 
 </style>

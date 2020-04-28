@@ -40,12 +40,12 @@
                         <button class="chart-time-confirm" @click="addTime()">添加</button>
                     </div>
                     <div class="chart-preset-title">
-                        <h2>社团名称</h2>
-                        <input type="text" @keyup.enter="setTitle()" v-model="clubName" placeholder="请输入社团名称">
-                        <input type="button" value="确定" @click="setTitle()">
+                        <div>社团名称</div>
+                        <input type="text" class="chart-name-input" @keyup.enter="setTitle()" v-model="clubName" placeholder="请输入社团名称">
+                        <input type="button" value="确定" class="chart-time-confirm" @click="setTitle()">
                     </div>
                     <div class="chart-preset-notes">
-                        <div>
+                        <div class="chart-preset-notes-title">
                             <h3 style="display:inline;">备注  </h3>
                             <p style="display:inline;font-size:0.7rem;">最多添加三条</p>
                         </div>
@@ -249,7 +249,8 @@ export default {
     .chart-preset{
         width: 48%;
         height: 100%;
-        background-color: rgb(6, 211, 40);
+        background-color: #ffffff;
+        border-radius: 0.5rem;
         display: flex;
         box-shadow: #566d97 0 0 20px;
         flex-direction: column;
@@ -261,7 +262,7 @@ export default {
         width: 100%;
         padding: 0rem;
         height: 5%;
-        color: white;
+        color: rgb(0, 0, 0);
         font-size: 1.5rem;
         letter-spacing: 2px;
         /* margin-top: 1%; */
@@ -274,7 +275,11 @@ export default {
         padding-top: 5%;
     }
     .chart-preset-wrp{
-        background-color: greenyellow;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
     }
 
     table{
@@ -408,45 +413,129 @@ export default {
     }
     /* ----------------------------------------------- */
     .chart-preset-time{
-        width: 100%;
+        border: 1px solid #cad9ea;
+        width: 90%;
         height: 10%;
-        background-color: brown;
+        background-color: rgb(255, 255, 255);
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
+        padding: 0;
     }
     .chart-time-title{
-        width: 10%;
-        background-color: burlywood;
+        width: 12%;
+        text-indent: 0.2rem;
+        /* background-color: burlywood; */
     }
     .chart-time-picker{
-        width: 75%;
-        height: 90%;
-        background-color: rgb(29, 32, 170);
+        width: 80%;
+        height: 100%;
+        /* background-color: rgb(29, 32, 170); */
         display: flex;
         justify-content: space-around;
+        border: 0;
+        outline: none;
+        /* background-color: brown; */
+    }
+    .chart-time-picker input{
+        width: 50%;
+        border: 1px solid #cad9ea;
+        /* border: 0rem; */
+        
     }
     .chart-time-confirm{
+        margin: 0;
+        padding: 0;
+        /* border: 1px solid transparent;  */
+        border: 1px solid #cad9ea;
+        outline: none;   
+        background-color: #ece2e7;
         width: 10%;
+        height: 100%;
+    }
+    .chart-time-confirm:hover{
+        background-color: #af91c5;
     }
     .chart-added-el{
         width: 90%;
     }
     .chart-preset-title{
+        border: 1px solid #cad9ea;
+        width: 90%;
+        height: 10%;
         margin-top: 1rem;
-        background-color: chocolate;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         /* width: 100%; */
     }
-    .chart-preset-notes{
-        margin-top: 1rem;
-        background-color: cornflowerblue;
+    .chart-preset-title div{
+        /* background-color: aquamarine; */
+        width: 14%;
+        height: 100%;
+        display: flex;
+        /* justify-content: center; */
+        text-indent: 0.7rem;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: 600;
     }
-    .chart-preset-notes p{
+    .chart-name-input{
+        width: 80%;
+        /* background-color: blueviolet; */
+        
+        height: 100%;
+        /* border: 0; */
+        border: 1px solid #cad9ea;
+        text-indent: 1rem;
+        border-right: 0;
+    }
+    .chart-preset-notes{
+        width: 90%;
+        height: 40%;
+        padding-bottom: 1rem;
+        border: 1px solid #cad9ea;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        /* background-color: cornflowerblue; */
+    }
+    .chart-preset-notes-title{
+        /* background-color: blueviolet; */
+        width: 100%;
+        padding: 1rem;
+    }
+    .chart-notes-add{
+        /* background-color: brown; */
+        /* height: fit-content; */
+        /* height: 70%; */
+        margin-bottom: 3rem;
     }
     .chart-preset-notes textarea{
-        width: 5rem;
-        width: 90%;
+        /* width: 5rem; */
+        width: 100%;
+        border: 1px solid #cad9ea;
+        height: 35%;
         resize: none;
+        /* margin: ; */
+        margin-bottom: 0.3rem;
+    }
+    .chart-notes-confirm{
+        /* background-color: blueviolet; */
+        /* margin-right: ; */
+        margin: 0rem;
+        border: 1px solid #cad9ea;
+        outline: none;   
+        background-color: #ece2e7;
+        width: 80%;
+        border-radius: 0.5rem;
+
+    }
+    .chart-notes-confirm:hover{
+        background-color: #af91c5;
     }
 
 </style>

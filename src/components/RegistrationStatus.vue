@@ -1,15 +1,18 @@
 <template>
     <div class="wrp">
-        <div class="title"><h1>报名信息</h1></div>
-        <div class="pannel">
-            <div class="person" :to="{ name: 'PersonDetail', params: { id:idx,personData:item }}" v-for="(item,idx) in registration" :key="idx" @click="navigate(item.id,idx)">
-                <h3>{{item.name}}</h3>
-                <h3>{{item.school}}</h3>
-                <h3>{{item.phone}}</h3>
+        <div class="content-wrp">
+            <div class="title"><h1>报名信息</h1></div>
+            <div class="pannel">
+                <div class="person" :to="{ name: 'PersonDetail', params: { id:idx,personData:item }}" v-for="(item,idx) in registration" :key="idx" @click="navigate(item.id,idx)">
+                    <h3>{{item.name}}</h3>
+                    <h3>{{item.school}}</h3>
+                    <h3>{{item.phone}}</h3>
+                </div>
             </div>
+            <!-- <div class="retur"></div> -->
+            <router-view v-if="isShowRouterview" :key="tmpKey"></router-view>
         </div>
-        <!-- <div class="retur"></div> -->
-        <router-view v-if="isShowRouterview" :key="tmpKey"></router-view>
+        
         <!-- <keep-alive v-if="!$route.meta.noKeepAlive">
             <router-view></router-view>
         </keep-alive>
@@ -58,30 +61,35 @@ export default {
 </script>
 <style scoped>
     .wrp{
-        /* width: 90%; */
-        height: 100%;
-        background-color: rgb(145, 131, 131);
+    }
+    .content-wrp{
+        width: 90%;
+        height: 90%;
+        /* background-color: burlywood; */
+        margin: auto;
         display: flex;
         flex-direction: column;
         justify-content: start;
-        
+        box-shadow: #566d97 0 0 20px;
+        border: 1px solid #cad9ea;
     }
     .title{
-        background-color: beige;
+        /* background-color: beige; */
         width: 100%;
-
+        padding: 1rem;
         height: 5%;
     }
     .title h1{
-        text-align: center;
+        /* text-align: center; */
         width: 10%;
-        background-color: aquamarine;
-        margin-left: 1rem;
+        margin: auto;
+        /* background-color: aquamarine; */
+        /* margin-left: 1rem; */
     }
     .pannel{
         width: 100%;
         height: fit-content;
-        background-color: rgb(135, 135, 211);
+        /* background-color: rgb(135, 135, 211); */
         display: flex;
         justify-content: start;
         flex-flow: wrap;
@@ -89,15 +97,19 @@ export default {
     }
     .person{
         width: 30%;
-        margin: 1.666%;
+        margin: 1.5%;
         height: fit-content;
-        background-color: brown;
+        /* background-color: brown; */
+        border: 1px solid #cad9ea;
+        border-radius: 0.5rem;
+        background-color: #cce9ec;
         /* display: flex;/ */
         /* align-items: center; */
         /* justify-content: center; */
     }
     .person:hover{
-        background-color: rgb(210, 192, 30);
+        background-color: #899ec2;
+        cursor: crosshair;
     }
     .person h3{
         /* background-color: chartreuse; */

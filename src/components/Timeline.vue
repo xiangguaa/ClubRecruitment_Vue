@@ -6,7 +6,7 @@
         <div class="timeline">
             <div class="item-wrp" v-for="(activity,idx) in timeline" :key="idx">
                 <div class="item">
-                    {{activity}}
+                    <!-- {{activity}} -->
                     <p class="activity-name">{{activity[1].name}}</p>
                     <p class="activity-time">{{activity[0].time}}</p>
                     <div class="activity-status">已完成</div>
@@ -44,21 +44,24 @@
 </script>
 <style scoped>
     .wrp{
-        background-color: hotpink;
+        background-color: #bdc8c9;
         width: 80%;
         height: 15rem;
         margin: 0 auto;
         position: relative;
         margin-top: 2rem;
+        border-radius: 0 2rem 0 2rem;
+        border: 1px solid #cad9ea;
     }
     .club{
         /* display: inline; */
-        background-color: rgb(158, 89, 207);
+        border-radius: 0 0 0 2rem;
+        /* background-color: rgb(158, 89, 207); */
         width: 10%;
         height: inherit;
         line-height: 15rem;
         text-align: center;
-        font-size: 2rem;
+        font-size: 4rem;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-weight: bolder;
         display: inline-block;
@@ -68,22 +71,26 @@
     .club p{
         margin: 0;
         padding: 0;
+        /* background-color: tomato; */
+        filter: blur(0.5px);
+
     }
 
     .timeline{
         display: inline-block;
         position: absolute;
         right: 0rem;
-        background-color: khaki;
+        /* background-color: #D4E599; */
         height: inherit;
         width: 90%;
         display: flex;
         justify-content: space-evenly;
-
+        border-radius: 0 2rem 0 0;
+        
     }
 
     .item-wrp{
-        background-color: lightblue;
+        /* background-color: lightblue; */
         width: 100%;
         margin-left: 1rem;
         /* width: 25%; */
@@ -92,25 +99,47 @@
         /* flex-direction: column; */
         justify-content: space-evenly;
     }
+    .item-wrp:last-child{
+        /* background-color: lightcoral; */
+        border-radius: 0 2rem 0 0;
+    }
+    .item-wrp:last-child .arrow{
+        visibility: hidden;
+    }
     .item{
-        background-color: limegreen;
+        filter: brightness(1.2);
+        /* background-color: #86c976; */
+         background-color: #98a6c2;
+         filter: opacity(80%);
+        filter: grayscale(0.2);
+        border-radius: 0.7rem;
         width: 80%;
+        /* height: fit-content; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
     }
     .activity-name{
         font-size: 1.5rem;
+        color: white;
 
     }
     .activity-time{
         font-size: 1rem;
-        color: slategray;
+        color: rgb(0, 0, 0);
     }
     .activity-status{
         color: blue;
+        font-size: 1.3rem;
+        font-weight: 600;
     }
     .arrow{
         width: 20%;
-        background-color: slateblue;
+        /* background-color: slateblue; */
         /* text-align: center; */
+        filter: contrast(2) brightness(1.2);
         justify-content: flex-end;
         display: flex;
         align-items: center;
